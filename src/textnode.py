@@ -13,6 +13,10 @@ class TextType(Enum):
 class TextNode:
     def __init__(self, text, text_type, url=None):
         self.text = text
+        if not isinstance(text_type, TextType):
+            raise Exception(
+                "Unexpected TextType value, text_type must be of type TextType"
+            )
         self.text_type = text_type
         self.url = url
 
